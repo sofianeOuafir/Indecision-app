@@ -11,7 +11,7 @@
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "css-loader": "0.28.4",
-    "live-server": "^1.2.0",
+    "extract-text-webpack-plugin": "3.0.0",
     "node-sass": "4.5.3",
     "normalize.css": "7.0.0",
     "react": "16.0.0",
@@ -20,12 +20,19 @@
     "sass-loader": "6.0.6",
     "style-loader": "0.18.2",
     "validator": "8.0.0",
-    "webpack": "3.1.0",
-    "webpack-dev-server": "2.5.1"
+    "webpack": "3.1.0"
+  },
+  "engines": {
+    "node": "8.11.2"
   },
   "scripts": {
-    "serve": "live-server public/",
-    "build": "webpack",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build:prod",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.5.1"
   }
 }
